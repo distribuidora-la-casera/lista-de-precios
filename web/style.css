@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+
+  /* Colores */
+
+  --clr-primary: #00009E;
+  --clr-primary-light: #8A8BAC;
+
+  --clr-font: #262205;
+  --clr-alert: hsl(44, 100%, 76%);
+
+  --clr-neutral-900: #eff6fa;
+  --clr-neutral-700: #D8D8DE;
+
+  /* Tipografia */
+
+  --ff: 'Montserrat', sans-serif, system-ui;
+
+  --fs-p: 16px;
+
+  --fw-bold: 600;
+
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  box-sizing: border-box;
+}
+
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+svg.icon {
+  height: 1cap;
+}
+
+.stack {
+  display: grid;
+  grid-template-areas: "stack";
+  align-items: center;
+
+  >* {
+    grid-area: stack;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
+
+body,
+.content-grid,
+.full-width {
+
+
+
+  --padding-inline: 20px;
+  --content-max-width: 700px;
+
+  --content-size: min(var(--content-max-width), calc(100vw - var(--padding-inline) * 2));
+  --full-width-size: minmax(0, auto);
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start] var(--full-width-size) var(--padding-inline) [content-start] var(--content-size) [content-end] var(--padding-inline) var(--full-width-size) [full-width-end];
+}
+
+:is(.content-grid, .full-width)>* {
+  grid-column: content;
+}
+
+.full-width {
+  grid-column: full-width;
+}
+
+.content-grid {
+  grid-column: content;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  display: grid;
+  grid-template-rows:
+    [header-start] min-content [header-end main-start] auto [main-end];
+
+  font-family: var(--ff);
+  color: var(--clr-font);
+  background-color: var(--clr-neutral-900);
+
+  overflow-x: clip;
+
+
+  >* {
+    grid-column: full-width;
+  }
+}
+
+body>header {
+  grid-row: header;
+  align-items: center;
+  justify-items: center;
+  padding-block: 16px;
+
+  background-color: var(--clr-neutral-900);
+
+  .wrapper {
+
+    grid-column: full-width;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+
+    >.title {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      align-items: center;
+      width: fit-content;
+
+      >img {
+        width: 39px;
+      }
+    }
+
+    >.line {
+      background-color: var(--clr-primary);
+      height: 10px;
+      width: 100%;
+      flex-grow: 1;
+      flex-basis: 0;
+
+      &.left {
+        grid-column: 1/2;
+        border-radius: 0 10px 10px 0;
+      }
+
+      &.right {
+        border-radius: 10px 0 0 10px;
+        grid-column: full-width;
+      }
+
+    }
+
+  }
+
+
+
+}
+
+body>main {
+  grid-row: main;
+  row-gap: 10px;
+  margin-top: 20px;
+
+  >[role="group"] {
+    position: sticky;
+    top: var(--_top);
+    z-index: 1;
+    transition: filter .3s ease-in;
+
+    input {
+      padding: 11px 18px;
+      border: 1px solid var(--clr-neutral-700);
+      border-radius: 10px;
+      caret-color: var(--clr-primary);
+      padding-right: 50px;
+
+      &::placeholder {
+        color: var(--clr-neutral-700);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--clr-primary);
+      }
+    }
+
+    svg {
+      justify-self: end;
+      margin-right: 10px;
+      padding: 2px;
+      pointer-events: none;
+    }
+
+    &.active {
+      filter: drop-shadow(0 3px 6px #1126);
+    }
+  }
+
+
+
+  .caption {
+    font-size: 12px;
+    display: flex;
+
+    align-items: center;
+    gap: 10px;
+
+    .sqr {
+      background-color: var(--clr-alert);
+      aspect-ratio: 1;
+      width: 24px;
+      border-radius: 5px;
+
+    }
+
+    p {
+      color: #8A8BAC;
+    }
+  }
+
+  #data {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    margin-top: 20px;
+
+    .row {
+
+      display: grid;
+
+      grid-template-rows: min-content 0fr;
+      transition: grid-template-rows .3s ease-in;
+
+
+      section.group {
+        background-color: var(--clr-neutral-700);
+
+        padding: 10px 20px;
+        border-radius: 10px;
+
+        &[data-id="OTRAS COMPRAS"] {
+          display: none;
+
+          &+section.list-container {
+            display: none;
+          }
+        }
+
+        label {
+          height: 200%;
+
+          &:has(input:checked) svg {
+            rotate: 360deg;
+          }
+
+          input[type="checkbox"] {
+            display: none;
+            visibility: hidden;
+
+          }
+        }
+
+        svg {
+          justify-self: end;
+          transition: .3s ease-in;
+          rotate: 180deg;
+        }
+      }
+
+      section.list-container {
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+        padding-left: 50px;
+        gap: 10px;
+
+
+
+        overflow: hidden;
+
+
+
+        article {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 10px;
+          border: 1px solid var(--clr-neutral-700);
+          padding: 10px 20px;
+          gap: 50px;
+
+          p {
+            text-transform: lowercase;
+          }
+
+          p:first-child {
+            text-transform: capitalize;
+          }
+
+          &.alert {
+            border-color: var(--clr-alert);
+            border-width: 3px;
+            order: -1;
+
+            p:last-child {
+              font-weight: var(--fw-bold);
+            }
+          }
+        }
+      }
+
+      &:has(article.alert) {
+        order: -1;
+
+        section.group {
+          background-color: var(--clr-alert);
+
+          p.group_name::after {
+            content: attr(data-cambios);
+            background-color: hsl(from var(--clr-font) h s l / .3);
+            color: var(--clr-font);
+            margin-left: 8px;
+            border-radius: 50%;
+            padding: 4px;
+            width: 30px;
+            aspect-ratio: 1;
+            font-weight: var(--fw-bold);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+        }
+
+      }
+
+      &:has(section.group input:checked) {
+        grid-template-rows: min-content 1fr;
+      }
+
+
+
+
+    }
+
+    p.update {
+      align-self: end;
+      color: var(--clr-primary-light);
+      width: fit-content;
+      font-size: var(--fs-p);
+      order: -1;
+    }
+
+    span.loader {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      translate: -50% -50%;
+      width: 48px;
+      height: 48px;
+      border: 5px solid var(--clr-primary);
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      display: inline-block;
+      box-sizing: border-box;
+      animation: rotation 1s linear infinite;
+      pointer-events: none;
+    }
+
+    &:has(.row) span.loader {
+      display: none;
+    }
+
+    &.searching {
+      .row {
+        display: contents;
+
+        section.group {
+          display: none;
+
+          &[data-id="OTRAS COMPRAS"] + section.list-container{
+            display: contents;
+          }
+        }
+
+        section.list-container {
+          display: contents;
+
+          article{
+            order: unset;
+          }
+
+          article p:first-child::after{
+            content: "- " attr(data-empresa);
+            margin-left: .7cap;
+            color: var(--clr-primary-light);
+            font-style: italic;
+          }
+
+          article:not(.found) {
+            display: none;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+
+
+@keyframes rotation {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media print {
+  [role="group"] {
+    display: none;
+  }
+
+  .caption .sqr {
+    border: 2px dotted var(--clr-font);
+  }
+
+  #data {
+    display: grid;
+
+    .row {
+      grid-template-rows: min-content 1fr !important;
+
+      section.group {
+        border: 3px solid var(--clr-neutral-700);
+
+        break-inside: avoid;
+
+        label {
+          display: none;
+        }
+      }
+
+      section.list-container article.alert {
+        border: 2px dotted var(--clr-font) !important;
+      }
+
+    }
+  }
+}

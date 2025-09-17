@@ -1,0 +1,38 @@
+{
+    "grupos": {
+        "Empresa 1": {
+            "Articulo 1": {
+                "precio": "1001.88",
+                "cambio": 1
+            },
+            "Articulo 2": {
+                "precio": 12121,
+                "cambio": 1
+            },
+            "Articulo 3": {
+                "precio": 122121,
+                "cambio": 1
+            },
+            "Articulo agregado": {
+                "precio": 34343,
+                "cambio": 1
+            }
+        },
+        "Empresa 2": {
+            "Articulo 4": {
+                "precio": "2222.22",
+                "cambio": 0
+            },
+            "Articulo 5": {
+                "precio": "5555.55",
+                "cambio": 0
+            },
+            "Articulo 6": {
+                "precio": "6666.66",
+                "cambio": 0
+            }
+        }
+    },
+    "ofertas": {},
+    "fecha": "16-09-2025 14:12:09"
+}

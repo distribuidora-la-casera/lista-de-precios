@@ -6,7 +6,7 @@ from openpyxl import load_workbook
 def was_price_changed(previous_data, grupo, articulo, new_price):
     try:
         old_price = previous_data["grupos"][grupo][articulo]["precio"]
-        return 1 if str(old_price) != new_price else 0
+        return 1 if str(old_price) != str(new_price) else 0
     except KeyError:
         return 0
 

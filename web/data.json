@@ -2,8 +2,8 @@
     "grupos": {
         "Empresa 1": {
             "Articulo 1": {
-                "precio": "1001.88",
-                "cambio": 0
+                "precio": "1002",
+                "cambio": 1
             },
             "Articulo 2": {
                 "precio": "12121",
@@ -40,5 +40,5 @@
         }
     },
     "ofertas": {},
-    "fecha": "16-09-2025 21:23:20"
+    "fecha": "16-09-2025 21:23:58"
 }

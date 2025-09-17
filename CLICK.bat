@@ -6,7 +6,7 @@ echo ===========================
 cd /d "%~dp0"
 
 :: Copiar datos procesados si hace falta (ejecutar el Python)
-python src\rtf_to_json.py
+python src\xlsx_to_json.py
 
 :: Añadir cambios
 git add .

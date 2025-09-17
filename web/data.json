@@ -31,8 +31,14 @@
                 "precio": "6666.66",
                 "cambio": 0
             }
+        },
+        "Empresa 3": {
+            "Papitas": {
+                "precio": 200,
+                "cambio": 0
+            }
         }
     },
     "ofertas": {},
-    "fecha": "16-09-2025 21:13:18"
+    "fecha": "16-09-2025 21:18:36"
 }

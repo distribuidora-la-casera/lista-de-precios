@@ -2,15 +2,15 @@
     "grupos": {
         "Empresa 1": {
             "Articulo 1": {
-                "precio": "1002",
+                "precio": "1003",
                 "cambio": 0
             },
             "Articulo 2": {
-                "precio": "12121",
+                "precio": "3",
                 "cambio": 0
             },
             "Articulo 3": {
-                "precio": "122121",
+                "precio": "3",
                 "cambio": 0
             },
             "Articulo agregado": {
@@ -39,7 +39,7 @@
             }
         },
         "Empresa 4": {
-            "Azúcar x1kg": {
+            "Azucar x1kg": {
                 "precio": "800",
                 "cambio": 0
             },
@@ -50,5 +50,5 @@
         }
     },
     "ofertas": {},
-    "fecha": "16-09-2025 21:54:51"
+    "fecha": "16-09-2025 22:00:10"
 }

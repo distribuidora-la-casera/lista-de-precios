@@ -32,7 +32,6 @@ for row in ws.iter_rows(min_row=1, values_only=True):
     grupo, articulo, precio = row
     if grupo not in data["grupos"]:
         data["grupos"][grupo] = {}
-    print(precio)
     data["grupos"][grupo][articulo] = {"precio": str(precio), "cambio": was_price_changed(previous_data, grupo, articulo, precio)}
 
 # Save the new data

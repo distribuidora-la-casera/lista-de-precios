@@ -1,21 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
 
   /* Colores */
 
-  --clr-primary: #00009E;
-  --clr-primary-light: #8A8BAC;
+  --clr-primary: #EB3136;
+  --clr-primary-light: #ec7979;
 
   --clr-font: #262205;
   --clr-alert: hsl(44, 100%, 76%);
 
-  --clr-neutral-900: #eff6fa;
-  --clr-neutral-700: #D8D8DE;
+  --clr-neutral-900: #f9faef;
+  --clr-neutral-700: #deddd8;
 
   /* Tipografia */
 
-  --ff: 'Montserrat', sans-serif, system-ui;
+  --ff: 'Inter', sans-serif, system-ui;
 
   --fs-p: 16px;
 
@@ -140,14 +140,16 @@ body>header {
     width: 100%;
 
     >.title {
-      display: flex;
+      display: grid;
       justify-content: center;
-      gap: 10px;
       align-items: center;
+      justify-items: center;
+      
+      gap: 10px;
       width: fit-content;
 
       >img {
-        width: 39px;
+        width: 234px;
       }
     }
 
@@ -166,6 +168,7 @@ body>header {
       &.right {
         border-radius: 10px 0 0 10px;
         grid-column: full-width;
+        background-color: #0196DA;
       }
 
     }

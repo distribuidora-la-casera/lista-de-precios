@@ -21,4 +21,4 @@ git push -u origin main
 echo ===========================
 echo   LISTA SUBIDA CON EXITO
 echo ===========================
-pause
+

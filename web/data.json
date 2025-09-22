@@ -52,7 +52,7 @@
     "ofertas": {
         "Empresa 1": {
             "Articulo 1": {
-                "precio": "2200"
+                "precio": "2900"
             },
             "Articulo 3": {
                 "precio": "5490"
@@ -72,5 +72,5 @@
             }
         }
     },
-    "fecha": "22-09-2025 20:31:30"
+    "fecha": "22-09-2025 20:32:01"
 }

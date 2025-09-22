@@ -26,6 +26,8 @@ with open(previous_data_file, 'r') as f:
 wb = load_workbook(input_file)
 ws = wb["Lista"]
 
+ws_ofertas = wb["Ofertas"]
+
 data = {"grupos": {}, "ofertas": {}, "fecha": datetime.now().strftime("%d-%m-%Y %H:%M:%S")}
 
 for row in ws.iter_rows(min_row=1, values_only=True):
@@ -33,6 +35,13 @@ for row in ws.iter_rows(min_row=1, values_only=True):
     if grupo not in data["grupos"]:
         data["grupos"][grupo] = {}
     data["grupos"][grupo][articulo] = {"precio": str(precio), "cambio": was_price_changed(previous_data, grupo, articulo, precio)}
+
+for row in ws_ofertas.iter_rows(min_row=1, values_only=True):
+    grupo, articulo, precio = row
+    if grupo not in data["ofertas"]:
+        data["ofertas"][grupo] = {}
+    data["ofertas"][grupo][articulo] = {"precio": str(precio)}
+
 
 # Save the new data
 with open(previous_data_file, 'w') as f:

@@ -219,6 +219,12 @@ body>main {
     }
   }
 
+  h1{
+    font-size: 32px;
+    font-weight: var(--fw-bold);
+    margin-bottom: 10px;
+  }
+
 
 
   .caption {
